@@ -1,4 +1,4 @@
 # crossword-puzzle-generator
 Crossword Puzzle Generator
 
-[LIVE PREVIEW](https://happywords.github.io/crossword-puzzle-generator/)
+[LIVE PREVIEW](https://voluntari-noi.github.io/crossword-puzzle-generator/)
