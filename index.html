@@ -15,14 +15,14 @@
 
   <header class="bg-black pad-xl">
     <div class="container text-center">
-      <h1 class="mrg-xs">Crossword Puzzle Generator</h1>
-      <p>Generate your custom crossword puzzle game.</p>
+      <h1 class="mrg-xs">Generator de cuvinte încrucișate</h1>
+      <p>Generează-ți propriul joc de cuvinte încrucișate</p>
     </div>
   </header>
 
   <article class="pad-xl">
     <div class="container">
-      <h2>Search the hidden words.</h2>
+      <h2>Caută cuvintele ascunse:</h2>
       <div id="words-example">
         <table id="words-game-table" class="text-centered">
           <tbody>
@@ -44,7 +44,7 @@
           </tbody>
         </table>
 
-        <p ng-show="app.game.is_hint_visible">Search for
+        <p ng-show="app.game.is_hint_visible">Caută următoarele cuvinte:
           <span ng-repeat="word in app.game.hidden_words_list">
             {{word.toUpperCase()}}<span ng-show="app.game.hidden_words_list.indexOf(word) < app.game.hidden_words_list.length-1">,</span><span ng-show="app.game.hidden_words_list.indexOf(word) == app.game.hidden_words_list.length-1">.</span>
           </span>
@@ -52,11 +52,11 @@
         <div id="game-form-container">
           <form class="form">
             <div>
-              <button ng-show="!app.game.is_hint_visible" ng-click="app.game.show_hint()" class="btn bg-red">Show hint</button>
-              <button ng-show="app.game.is_hint_visible" ng-click="app.game.hide_hint()" class="btn bg-red">Hide hint</button>
-              <button ng-show="!app.game.is_solved" ng-click="app.game.solve_game()" class="btn bg-red">Solve</button>
-              <button ng-show="app.game.is_solved" ng-click="app.game.unsolve_game()" class="btn bg-red">Unsolve</button>
-              <button ng-click="app.game.print()" class="btn bg-red">Print</button>
+              <button ng-show="!app.game.is_hint_visible" ng-click="app.game.show_hint()" class="btn bg-red">Arată indicii</button>
+              <button ng-show="app.game.is_hint_visible" ng-click="app.game.hide_hint()" class="btn bg-red">Ascunde indicii</button>
+              <button ng-show="!app.game.is_solved" ng-click="app.game.solve_game()" class="btn bg-red">Rezolvat</button>
+              <button ng-show="app.game.is_solved" ng-click="app.game.unsolve_game()" class="btn bg-red">Nerezolvat</button>
+              <button ng-click="app.game.print()" class="btn bg-red">Imprimă</button>
             </div>
           </form>
         </div>
@@ -66,28 +66,28 @@
 
   <article class="pad-xl" id="form-section">
     <div class="container">
-      <h2>Create your custom puzzle:</h2>
+      <h2>Crează-ți puzzle-ul personalizat:</h2>
       <div id="words-form-container">
         <form class="form">
           <div>
             <label>
-              <span>Hidden words (one per line):</span><br />
+              <span>Cuvinte ascunse (unul pe o linie):</span><br />
               <textarea name="words-list" id="words-textarea" cols="50" rows="10"></textarea>
             </label>
           </div>
           <div>
-            <button ng-click="app.game.generate_game()" class="btn bg-red">Generate</button>
+            <button ng-click="app.game.generate_game()" class="btn bg-red">Generează</button>
           </div>
         </form>
 
-        <p>Note you can print the page with or without hint, also solved or unsolved.</p>
+        <p>Rețineți că puteți imprima pagina cu sau fără indiciile puzzle-ului, cu puzzle-ul rezolvat sau nerezolvat</p>
       </div>
     </div>
   </article>
 
   <footer class="bg-black pad-xl">
     <div class="container text-center">
-      More resources at <a target="_blank" href="https://pentrucer.net/">www.pentrucer.net</a>.
+      Mai multe resurse aici: <a target="_blank" href="https://pentrucer.net/">www.pentrucer.net</a>.
     </div>
   </footer>
 </body>
