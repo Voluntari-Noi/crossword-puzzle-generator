@@ -121,6 +121,16 @@ angular.module('words_app', []).controller('words_controller', function() {
     }
   };
 
+  app.game.validate_input = function() {
+    var words_textarea = $("#words-textarea");
+    hidden_words = words_textarea.val().toUpperCase().split("\n");
+    app.game.hidden_words_list = app.util.to_unique(hidden_words);
+    if(app.game.hidden_words_list[0] === "") {
+      return false;
+    }
+    return true;
+  };
+
   app.game.save_hidden_words_list = function() {
     // Save hidden words from form input.
     var words_textarea = $("#words-textarea");
@@ -376,9 +386,14 @@ angular.module('words_app', []).controller('words_controller', function() {
 
   app.game.generate_game = function() {
     // Generate word search game based on hidden words list.
-    app.game.save_hidden_words_list();
-    app.game.used_points = [];
-    app.game.create_game_matrix();
+    var is_valid = app.game.validate_input();
+    if(!is_valid) {
+      alert("Nu uita să introduci cuvintele.");
+    } else {
+      app.game.save_hidden_words_list();
+      app.game.used_points = [];
+      app.game.create_game_matrix();
+    }
   };
 
   app.game.solve_game = function() {
